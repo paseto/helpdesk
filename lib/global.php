@@ -1337,7 +1337,7 @@ function aaSendEmail($to, $subject, $message) {
 			$headers = 'From: '.get_settings("Email_Display").' <'.get_settings("Email_Addr").'>' . "\r\n" .
 						'Reply-To: '.get_settings("Email_Re_Addr").'' . "\r\n" .
 						'MIME-Version: 1.0' . "\r\n" .
-						'Content-type: text/html; charset=utf-8' . "\r\n";
+						'Content-type: text/html; charset=iso-8859-1' . "\r\n";
 			
 			$mail_sent = mail($to, $subject, $message, $headers);
 			
