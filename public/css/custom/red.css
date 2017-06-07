@@ -1,0 +1,126 @@
+@charset "utf-8";
+/* CSS Document */
+html, body {
+	color:#444;
+}
+
+.navigation-box {
+	background-color:#FFF;
+	border:1px solid #CCC;	
+}
+
+.navigation-box ul li, #aa_chats ul li {
+	border-bottom:1px solid #CCC;
+}
+
+.navigation-box ul li:hover {
+	background-color:#EEE;
+}
+
+.navigation-menu {
+	background-color:#FFF;	
+	border-left:1px solid #CCC;
+}
+
+.navigation-menu ul li a {
+	background-color:#EEE;		
+	border-bottom:1px solid #CCC;	
+}
+
+.navigation-menu ul li li a{
+	background-color:#FFF
+}
+
+a {
+	color:#337AB7;
+}
+
+#layout-header {
+	background-color:#fe2e2e;
+	color:#FFF;
+	border-bottom:1px #fe2e2e solid;	
+}
+
+#layout-header a {
+	font-weight:600;
+	color:#FFF;
+}
+
+#layout-body {
+	background-color:#FFF;
+}
+
+#layout-body-left {
+	background-color:#fe8181;	
+	border-right:1px #fe8181solid;
+	color: #b62020;
+}
+
+#layout-body-right {
+	border-left:1px #CCC solid;
+}
+
+#table_header {
+	background-color:#FFF;
+	border-bottom:1px solid #CCC;	
+}
+
+#ticket_view_header {
+	background-color:#FFF;	
+    border-bottom: 1px solid #CCC;
+}
+
+.ticket:hover {
+	background-color:#F9F9F9;
+}
+
+.content-box-header {
+	background-color:#F9F9F9;
+	border:1px solid #DDD;
+}
+
+.content-box-body {
+	border:1px solid #DDD;
+}
+
+.staff {
+	background-color:#FFF;
+	border-color:#CCC;
+	margin-left: 5%;
+}
+
+.user {
+    background-color: #F5F5F5;
+    border-color: #CCC;
+	margin-right: 5%;
+}
+
+.private {
+    background-color: #fcf8e3;
+    border-color: #faebcc;
+	margin-left: 5%;	
+}
+
+#form-aa-search {
+	background-color:#FFF;
+	border-color:#b62020;
+	color:#444;
+}
+
+.form input, .form select {
+	border:1px solid #CCC;
+}
+
+.btn {
+	background-color:#FFF;
+	border:1px solid #CCC;
+	color:#444;
+}
+
+.btn:hover, .btn:hover {
+	background-color:#EEE;
+}
+
+.form input:focus, .form select:focus {
+    border-color: #444;
+}
