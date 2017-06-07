@@ -594,7 +594,7 @@ $lang['set-users-reg-access'] = 'Allow registered users';
 $lang['u-kb-nakb'] = "No knowledge base groups or articles currently available";
 
 $lang['u-access-title'] = "Access";
-$lang['u-access-error'] = "! Account not found. Please try again.";
+$lang['u-access-error'] = "Conta não encontrada. Verifique o endereço e a senha digitada.";
 $lang['u-access-disabled'] = "! Account disabled. Please contact site admin";
 $lang['u-signin'] = "Sign In";
 $lang['u-register-user'] = "Register Account";

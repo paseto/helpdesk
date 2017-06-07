@@ -116,6 +116,7 @@ $sel_tickets = "SELECT t.ID,
 				t.Type,
 				t.User,
 				t.Status,
+                u.cnpj,
 				DATE_FORMAT(t.Date_Added, '$date_format') AS DateAdd,
 				DATE_FORMAT(t.Date_Updated, '$date_format') AS DateUp,
 				DATE_FORMAT(t.SLA_Reply, '$date_format') AS DateSlaR,
@@ -209,6 +210,9 @@ $agent_skills = aaModelGetAgentSkills($s_uid);
         
 			<div class="tl ticket-list">
 			<a href="p.php?p=ticket&tid=<?php echo $ticket["ID"]; ?>"><?php echo $ticket["ID"]; ?></a>
+			</div>
+			<div class="tl ticket-list">
+			<a href="p.php?p=ticket&tid=<?php echo $ticket["ID"]; ?>"><?php echo $ticket["cnpj"]; ?></a>
 			</div>
 			<div class="tl ticket-list-subject">
 			<a href="p.php?p=ticket&tid=<?php echo $ticket["ID"]; ?>"><?php echo html_entity_decode(stripslashes($ticket["Subject"])); ?></a>

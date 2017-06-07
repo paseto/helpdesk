@@ -1201,13 +1201,16 @@ function cached_fields ($v, $dbval = NULL) {
 
 function set_session ($k, $v) {
 	@$_SESSION[$k] = $v;
+    setcookie($k, $v, (time() + (14 * 24 * 3600)), $_SERVER['SERVER_NAME']);
 }
 
 function read_session ($k) {
 	if (isset($_SESSION[$k])) { 
-		echo $_SESSION[$k]; 
-		unset($_SESSION[$k]); 
-	}
+	//	echo $_SESSION[$k]; 
+	//	unset($_SESSION[$k]); 
+	}else{
+      $_SESSION[$k] = $_COOKIE[$k];
+    }
 }
 
 // get admin styles to be selected

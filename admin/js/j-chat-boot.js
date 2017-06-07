@@ -48,7 +48,7 @@ function aa_chats(){
 					// blink page title for new messages
 					setTimeout(function(){
 						var title = document.title;
-						document.title = (title == "Acorn Aid Admin" ? "New chat message" : "Acorn Aid Admin");
+						document.title = (title == "Helpdesk Admin" ? "New chat message" : "Helpdesk Admin");
 					}, 250);
 					
 					// show red notification box for new chat
