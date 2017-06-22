@@ -158,7 +158,7 @@ function aaModelSubmitTicketUpdate ($tid, $user, $reply, $files) {
 	// set update ticket
 	$sql_t_u = "UPDATE ".$pdo_t['t_ticket']." SET Status = :status, Date_Updated = :dateup WHERE ID = :tid";
 	$q_t_u = $pdo_conn->prepare($sql_t_u);
-	$q_t_u->execute(array('status' => 'Aguardando Resposta', 
+	$q_t_u->execute(array('status' => 'Awaiting Reply', 
 						'dateup' => $now,
 						'tid' => $tid));
 						

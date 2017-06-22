@@ -537,7 +537,7 @@ $lang['dash-activity-ago'] = 'ago';
 $lang['dash-group-click'] = 'Click on the quantity to view tickets by group and status';
 
 $lang['set-user-role-user'] = 'User';
-$lang['tickets-status-ar'] = "Aguardando Resposta";
+$lang['tickets-status-ar'] = "Awaiting Reply";
 
 // global functions
 $lang['ticket-add-autoassign'] = 'Ticket automatically assigned to agent';
