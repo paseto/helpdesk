@@ -116,7 +116,7 @@ $sel_tickets = "SELECT t.ID,
 				t.Type,
 				t.User,
 				t.Status,
-                u.cnpj,
+                u.cnpj, e.nome_fantasia,
 				DATE_FORMAT(t.Date_Added, '$date_format') AS DateAdd,
 				DATE_FORMAT(t.Date_Updated, '$date_format') AS DateUp,
 				DATE_FORMAT(t.SLA_Reply, '$date_format') AS DateSlaR,
@@ -144,9 +144,10 @@ $sel_tickets = "SELECT t.ID,
 				FROM ".$pdo_t['t_ticket']." AS t
 				LEFT JOIN ".$pdo_t['t_groups']." AS c ON t.Cat_ID = c.Cat_ID
 				LEFT JOIN ".$pdo_t['t_priorities']." AS p ON t.Level_ID = p.Level_ID
-				LEFT JOIN ".$pdo_t['t_users']." AS u ON t.Owner = u.UID
+				LEFT JOIN ".$pdo_t['t_users']." AS u ON t.User_Email = u.Email
+                LEFT JOIN empresas e ON e.cnpj=u.cnpj
 				$wheresql";
-									 
+								 
 $tickets = $pdo_conn->prepare($sel_tickets);
 $tickets->execute();
 
@@ -212,7 +213,7 @@ $agent_skills = aaModelGetAgentSkills($s_uid);
 			<a href="p.php?p=ticket&tid=<?php echo $ticket["ID"]; ?>"><?php echo $ticket["ID"]; ?></a>
 			</div>
 			<div class="tl ticket-list">
-			<a href="p.php?p=ticket&tid=<?php echo $ticket["ID"]; ?>"><?php echo $ticket["cnpj"]; ?></a>
+			<a href="p.php?p=ticket&tid=<?php echo $ticket["ID"]; ?>"><?php echo $ticket["nome_fantasia"]; ?></a>
 			</div>
 			<div class="tl ticket-list-subject">
 			<a href="p.php?p=ticket&tid=<?php echo $ticket["ID"]; ?>"><?php echo html_entity_decode(stripslashes($ticket["Subject"])); ?></a>
