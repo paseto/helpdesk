@@ -64,16 +64,16 @@ $reg_access = (get_settings('Enable_User_Reg') == 1) ? 'checked="checked"' : '';
         </colgroup>
         <thead>
         <tr>
-        <td width="30%"><?php echo $lang['set-users-name']; ?></td>
-        <td width="30%"><?php echo $lang['set-user-db-ea']; ?></td>
+        <td width="22%"><?php echo $lang['set-users-name']; ?></td>
+        <td width="20%">Empresa</td>
+        <td width="22%"><?php echo $lang['set-user-db-ea']; ?></td>
         <td width="25%"><?php echo $lang['set-user-db-role']; ?></td>
         <td width="15%">&nbsp;</td>   
         </tr>
         </thead>
         <tbody>
         <?php
-		foreach($agents as $agent) {
-			
+		foreach($agents as $agent) {			
 		$disabled_tr = ($agent["Disabled"] == 1) ? 'style="background-color:#f2dede"' : '';
 		$uid = ($agent["Role"] == 0) ? $agent["Email"] : $agent["UID"];
 		
@@ -87,6 +87,7 @@ $reg_access = (get_settings('Enable_User_Reg') == 1) ? 'checked="checked"' : '';
         <input name="uid" id="uid" value="<?php echo $agent["UID"]; ?>" hidden style="display:none; ">
                   
         <td data-title="<?php echo $lang['set-user-db-fn']; ?>"><a href="p.php?p=user-profile&email=<?php echo $agent["Email"]; ?>&uid=<?php echo $agent["UID"]; ?>"><?php echo $agent["Fname"]; ?></a> <strong title="Tickets per user">[<?php echo $tpa["tcount"]; ?>]</strong></td>
+        <td data-title="<?php echo $lang['set-user-db-ea']; ?>"><?php echo $agent["nome_fantasia"]; ?></td>
         <td data-title="<?php echo $lang['set-user-db-ea']; ?>"><?php echo $agent["Email"]; ?></td>
         <td data-title="<?php echo $lang['set-user-db-role']; ?>"><?php echo $agent["NamedRole"]; ?></td>   
         <td data-title="&nbsp;">

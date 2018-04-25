@@ -23,14 +23,14 @@ function aaModelGetUsersByRole() {
 
 	global $pdo_conn, $pdo_t, $lang;
 	
-	$sql = "SELECT *, 
+	$sql = "SELECT u.*, e.nome_fantasia, 
 	CASE Role
 	WHEN '3' THEN '".$lang['set-user-role-admin']."'
 	WHEN '2' THEN '".$lang['set-user-role-super']."'
 	WHEN '1' THEN '".$lang['set-user-role-agent']."'
 	WHEN '0' THEN '".$lang['set-user-role-user']."'
-	END AS NamedRole
-	FROM ".$pdo_t['t_users']." ORDER BY Role DESC, Fname";
+	END AS NamedRole    
+	FROM ".$pdo_t['t_users']." u LEFT JOIN empresas e ON e.cnpj=u.cnpj ORDER BY Role DESC, Fname";
 	
 	$q = $pdo_conn->prepare($sql);
 	$q->execute();

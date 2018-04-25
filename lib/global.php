@@ -384,6 +384,20 @@ function aaModelGetUsers() {
 	
 }
 
+// get empresas
+function aaModelGetEmpresas() {
+
+	global $pdo_conn, $pdo_t;
+	
+	$sql_users = 'SELECT * FROM '.$pdo_t['t_empresas'].' ORDER BY nome_fantasia';
+	 
+	$q_users = $pdo_conn->prepare($sql_users);
+	$q_users->execute();
+	
+	return $q_users;
+	
+}
+
 function aaModelGetAgentSkills($uid) {
 
 	global $pdo_conn, $pdo_t;

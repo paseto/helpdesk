@@ -1,6 +1,6 @@
 <?php
 // insert new user / agent
-function aaModelInsertUser($fname, $email, $telno, $pwd, $role, $signature = NULL, $u_notify_tn, $u_notify_tu, $u_notify_pm, $skills = NULL) {
+function aaModelInsertUser($fname, $email, $cnpj, $telno, $pwd, $role, $signature = NULL, $u_notify_tn, $u_notify_tu, $u_notify_pm, $skills = NULL) {
 
 	global $pdo_conn, $pdo_t, $lang;
 
@@ -35,6 +35,11 @@ function aaModelInsertUser($fname, $email, $telno, $pwd, $role, $signature = NUL
 		echo '<div class="error-msg">'.$lang['generic-error-un-exists'].'</div>';
 		$error = true;
 		
+	} else if (empty ($cnpj)) {
+	
+		echo '<div class="error-msg">A empresa precisa ser informada!</div>';
+		$error = true;
+		
 	} else if (strlen($pwd) < 6) {
 		
 		echo '<div class="error-msg">'.$lang['generic-error-pw-length'].'</div>';
@@ -60,11 +65,12 @@ function aaModelInsertUser($fname, $email, $telno, $pwd, $role, $signature = NUL
 		$pwd = hash("sha256", $pwd);
 			
 		$sql_u_i = "INSERT INTO ".$pdo_t['t_users']." (Fname, Email, TeleNo, Pwd, Role, Preferred_View, Layout_Style, Signature, Notify_TN, Notify_TU, Notify_PM, Date_Created) 
-		VALUES (:fname, :email, :telno, :pwd, :role, :view, :layout, :signature, :u_notify_tn, :u_notify_tu, :u_notify_pm, :dt_created)"; 
+		VALUES (:fname, :email, :cnpj, :telno, :pwd, :role, :view, :layout, :signature, :u_notify_tn, :u_notify_tu, :u_notify_pm, :dt_created)"; 
 
 		$q_u_i = $pdo_conn->prepare($sql_u_i);
 		$q_u_i->execute(array('fname' => $fname, 
 		'email' => $email,
+		'cnpj' => $cnpj,
 		'telno' => $telno,
 		'pwd' => $pwd,
 		'role' => $role,

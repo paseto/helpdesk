@@ -50,11 +50,37 @@
     <?php echo @$form_error['u_telno']; ?>
     </div>
 
-    <div class="form-field">                
+<!--    <div class="form-field">                
     <label for="cnpj">CNPJ</label>
     <input name="cnpj" type="text" value="<?php if (isset($_POST["cnpj"])) { echo $_POST["cnpj"]; } else {  echo $user["cnpj"]; } ?>"/>
     <?php echo @$form_error['u_cnpj']; ?>
-    </div>
+    </div>-->
+    
+    <div class="form-field">        
+      <label for="role">Empresa</label>
+      <select id="cnpj" name="cnpj">
+        <option value=""> -- Selecione -- </option>
+        <?php
+        // roles for user drop down
+        $empresas = aaModelGetEmpresas();
+        $array_of_empresas = $empresas->fetchAll();
+
+
+        foreach ($array_of_empresas as $empresa) {
+
+            if ($user['cnpj'] == $empresa["cnpj"]) {
+
+                echo "<option value=" . $empresa["cnpj"] . " selected=\"selected\">" . $empresa["nome_fantasia"] . "</option>";
+            } else {
+
+                echo "<option value=" . $empresa["cnpj"] . " >" . $empresa["nome_fantasia"] . "</option>";
+            }
+        }
+
+        ?>
+      </select>
+      <?php echo @$form_error['u_cnpj']; ?>
+    </div>   
     
     <div class="form-field">            
     <label for="role"><?php echo $lang['set-user-db-role']; ?></label>

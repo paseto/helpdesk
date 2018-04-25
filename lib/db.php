@@ -15,6 +15,7 @@ $pdo_t['t_groups'] = "groups";
 $pdo_t['t_priorities'] = "priorities";
 $pdo_t['t_settings'] = "settings";
 $pdo_t['t_users'] = "users";
+$pdo_t['t_empresas'] = "empresas";
 $pdo_t['t_users_skills'] = "users_skill";
 $pdo_t['t_canned_msg'] = "canned_messages";
 $pdo_t['t_custom_fields'] = "custom_fields";
