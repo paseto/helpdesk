@@ -64,7 +64,7 @@ function aaModelInsertUser($fname, $email, $cnpj, $telno, $pwd, $role, $signatur
 		
 		$pwd = hash("sha256", $pwd);
 			
-		$sql_u_i = "INSERT INTO ".$pdo_t['t_users']." (Fname, Email, TeleNo, Pwd, Role, Preferred_View, Layout_Style, Signature, Notify_TN, Notify_TU, Notify_PM, Date_Created) 
+		$sql_u_i = "INSERT INTO ".$pdo_t['t_users']." (Fname, Email, cnpj, TeleNo, Pwd, Role, Preferred_View, Layout_Style, Signature, Notify_TN, Notify_TU, Notify_PM, Date_Created) 
 		VALUES (:fname, :email, :cnpj, :telno, :pwd, :role, :view, :layout, :signature, :u_notify_tn, :u_notify_tu, :u_notify_pm, :dt_created)"; 
 
 		$q_u_i = $pdo_conn->prepare($sql_u_i);
@@ -81,7 +81,10 @@ function aaModelInsertUser($fname, $email, $cnpj, $telno, $pwd, $role, $signatur
 		'u_notify_tu' => $u_notify_tu,
 		'u_notify_pm' => $u_notify_pm,
 		'dt_created' => $now));
-		//print_r($q_u_i->errorInfo());
+//        echo '<pre>';
+//		print_r($q_u_i->errorInfo());
+//        echo $sql_u_i;
+//        exit();
 		$lastuid = $pdo_conn->lastInsertId();
 			
 			// if skills are selected
