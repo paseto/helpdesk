@@ -399,7 +399,7 @@ if ($ticket["Status"] == "Closed" && $allow_feedback == 1) {
 	}	
 	?>
 	<span class="<?php echo @$restrict_agent; ?> click_editable"><a href="#"><i class="fa fa-pencil"></i></a></span>
-    <h2 class="editable pagetitle" contenteditable="false" type="ts" tid="<?php echo $ticket["ID"]; ?>"><?php echo $forward_subject = utf8_decode(decode_entities($ticket["Subject"])); ?></h2>
+    <h2 class="editable pagetitle" contenteditable="false" type="ts" tid="<?php echo $ticket["ID"]; ?>"><?php echo $forward_subject = utf8_encode(decode_entities($ticket["Subject"])); ?></h2>
     <div class="ticket-message user layout-padding" id="message_one">
 			
             
