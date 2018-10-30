@@ -213,10 +213,10 @@ $agent_skills = aaModelGetAgentSkills($s_uid);
 			<a href="p.php?p=ticket&tid=<?php echo $ticket["ID"]; ?>"><?php echo $ticket["ID"]; ?></a>
 			</div>
 			<div class="tl ticket-list">
-			<a href="p.php?p=ticket&tid=<?php echo $ticket["ID"]; ?>"><?php echo $ticket["nome_fantasia"]; ?></a>
+			<a href="p.php?p=ticket&tid=<?php echo $ticket["ID"]; ?>"><?php echo utf8_encode($ticket["nome_fantasia"]); ?></a>
 			</div>
 			<div class="tl ticket-list-subject">
-			<a href="p.php?p=ticket&tid=<?php echo $ticket["ID"]; ?>"><?php echo html_entity_decode(stripslashes($ticket["Subject"])); ?></a>
+			<a href="p.php?p=ticket&tid=<?php echo $ticket["ID"]; ?>"><?php echo utf8_encode(html_entity_decode(stripslashes($ticket["Subject"]))); ?></a>
 			</div>
 			<div class="tl ticket-list hide-mobile">
 			<?php echo aa_select_ticket_status_lang($ticket["Status"]); ?>
