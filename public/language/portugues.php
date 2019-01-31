@@ -253,7 +253,7 @@ $lang['nav-set-profile'] = 'Perfil';
 $lang['nav-set-logout'] = 'Sair';
 
 // text on settings-general.php
-$lang["set-general-title"] = "Getsl";
+$lang["set-general-title"] = "Geral";
 $lang["set-general-db-cn"] = "Nome da empresa";
 $lang["set-general-db-fl"] = "Idioma padrão";
 $lang["set-general-db-tz"] = "Fuso horário";

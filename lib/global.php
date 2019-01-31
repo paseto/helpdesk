@@ -1077,7 +1077,7 @@ function aaDateRange($daterange)
 function decode_entities($input)
 {
 
-    $input = html_entity_decode(stripslashes($input));
+    $input = utf8_encode(html_entity_decode(stripslashes($input)));
 
     return $input;
 
@@ -1412,7 +1412,7 @@ function aaSendEmail($to, $subject, $message)
 
             $mail = new PHPMailer;
 
-            //$mail->SMTPDebug = 3;                               // Enable verbose debug output
+//            $mail->SMTPDebug = 3;                               // Enable verbose debug output
 
             $mail->isSMTP();                                      // Set mailer to use SMTP
             $mail->Host = get_settings("Email_SMTP_Host");  // Specify main and backup SMTP servers
@@ -1557,7 +1557,6 @@ function aaSendEmailNewTicketNotification($new_ticket_subject, $new_ticket_messa
 // send email notification for updated tickets
 function aaSendEmailUpdateTicketNotification($tid)
 {
-
     global $pdo_conn, $pdo_t, $lang;
 
     $sql = "SELECT Email, Notes
@@ -1572,7 +1571,7 @@ function aaSendEmailUpdateTicketNotification($tid)
     $q->execute(array("tid" => $tid));
     $u = $q->fetch();
 
-    aaSendEmail($u['Email'], 'Ticket ' . $tid . ' has been updated', 'Support request ' . $tid . ' as has been updated by the customer. <p>' . decode_entities($u['Notes']) . '</p>');
+    aaSendEmail($u['Email'], 'Chamado [' . $tid . '] ATUALIZADO', 'Chamdo ' . $tid . ' foi atualizado pelo usuário. <p>' . decode_entities($u['Notes']) . '</p>');
 
 }
 

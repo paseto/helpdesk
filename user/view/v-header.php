@@ -27,7 +27,7 @@ $db_kb_enable = get_settings('KB_Enable');
 	<a href="index.php?p=ticket-add"><?php echo $lang['u-nav-s-request']; ?></a>
     <a href="index.php?p=dashboard"><?php echo $lang['u-nav-dashboard']; ?></a>
 	<a href="index.php?p=profile"><?php echo $lang['u-nav-profile']; ?></a>
-    <a href="logout.php"><?php echo $lang['u-nav-logout']; ?></a> (<?php echo $_SESSION['u']['aaname'].' - '.$_SESSION['u']['empresa']; ?>)    
+    <a href="logout.php"><?php echo $lang['u-nav-logout']; ?></a> (<?php echo decode_entities($_SESSION['u']['aaname'].' - '.$_SESSION['u']['empresa']); ?>)
     <?php
 	} else {
 

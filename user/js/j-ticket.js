@@ -31,6 +31,12 @@ $(document).ready(function() {
 	
 		$('.u-ticket-detail').toggle();
 	
-	});		
+	});
+
+	$(document).on('click', '#user_submit', function () {
+		// $(this).attr('disabled','disabled');
+		$(this).val('Aguarde...');
+		// $(this).submit();
+	});
 	
 });	
