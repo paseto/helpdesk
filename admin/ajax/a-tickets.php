@@ -213,10 +213,10 @@ $agent_skills = aaModelGetAgentSkills($s_uid);
 			<a href="p.php?p=ticket&tid=<?php echo $ticket["ID"]; ?>"><?php echo $ticket["ID"]; ?></a>
 			</div>
 			<div class="tl ticket-list">
-			<a href="p.php?p=ticket&tid=<?php echo $ticket["ID"]; ?>"><?php echo utf8_encode($ticket["nome_fantasia"]); ?></a>
+			<a href="p.php?p=ticket&tid=<?php echo $ticket["ID"]; ?>"><?php echo decode_entities($ticket["nome_fantasia"]); ?></a>
 			</div>
 			<div class="tl ticket-list-subject">
-			<a href="p.php?p=ticket&tid=<?php echo $ticket["ID"]; ?>"><?php echo utf8_encode(html_entity_decode(stripslashes($ticket["Subject"]))); ?></a>
+			<a href="p.php?p=ticket&tid=<?php echo $ticket["ID"]; ?>"><?php echo decode_entities($ticket["Subject"]); ?></a>
 			</div>
 			<div class="tl ticket-list hide-mobile">
 			<?php echo aa_select_ticket_status_lang($ticket["Status"]); ?>
@@ -236,7 +236,7 @@ $agent_skills = aaModelGetAgentSkills($s_uid);
 		?>
 
             <div class="ticket_summary">
-            <?php echo "<p class=\"text-large\"><a href=\"p.php?p=ticket&tid=".$ticket["ID"]."\">".html_entity_decode(stripslashes($ticket["Subject"]))."</a></p>
+            <?php echo "<p class=\"text-large\"><a href=\"p.php?p=ticket&tid=".$ticket["ID"]."\">".decode_entities($ticket["Subject"])."</a></p>
             <p><i style=\"margin-left:0px\" class=\"fa fa-plus-square\"></i> ".aa_select_ticket_status_lang($ticket["Status"])."
             <i class=\"fa fa-folder\"></i> ".decode_entities($ticket["Category"])."
             <i class=\"fa fa-flag\"></i> ".decode_entities($ticket["Priority"])."

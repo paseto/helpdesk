@@ -199,7 +199,7 @@ $signature = ($user['Signature'] == "") ? "N/A" : $user['Signature']; // n/a for
 			//while ($ticket_owned = mysqli_fetch_array($sel_owned_tickets)) {
 			
 			echo "<tr>
-			<td data-title=\"".$lang['tickets-subject']."\"><a href=\"p.php?p=ticket&tid=".$ticket_owned["ID"]."\">".$ticket_owned["Subject"]."</a></td>
+			<td data-title=\"".$lang['tickets-subject']."\"><a href=\"p.php?p=ticket&tid=".$ticket_owned["ID"]."\">".decode_entities($ticket_owned["Subject"])."</a></td>
 			<td data-title=\"".$lang['tickets-status']."\">".$ticket_owned["Status"]."</td>
 			<td data-title=\"".$lang['tickets-dateup']."\">".$ticket_owned["DateUp"]."</td>
 			</tr>";

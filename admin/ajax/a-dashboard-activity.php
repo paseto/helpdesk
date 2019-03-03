@@ -32,7 +32,7 @@ foreach ($activities as $act) {
     $page_link = "p.php?p=ticket&tid=" . $act["ID"] . "#" . $act["PID"];
 
     $user = ($act['User']);
-    $subject = utf8_encode(html_entity_decode($act['Subject']));
+    $subject = decode_entities($act['Subject']);
 
     $time_ago = time_elapsed_string($act["Date_Added"]);
 
