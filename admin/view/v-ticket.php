@@ -420,7 +420,7 @@ if (isset($_GET["subdel"])) {
             $ticket['Message'] = decode_entities($ticket['Message']);
 
             // if widget message use nl2br otherwise convert html
-            echo "<span class=\"editable\" contenteditable=\"false\" type=\"tb\" tid=\"" . $ticket["ID"] . "\">" . $message = $ticket['Type'] == 'Widget' ? nl2br($ticket['Message']) : preg_replace($preg_search, " ", $ticket['Message']) . "</span>";
+            echo "<span class=\"editable\" contenteditable=\"false\" type=\"tb\" tid=\"" . $ticket["ID"] . "\">" . $message = html_entity_decode($ticket['Type'] == 'Widget' ? nl2br($ticket['Message']) : preg_replace($preg_search, " ", $ticket['Message'])) . "</span>";
 
             ?>
 
@@ -577,7 +577,7 @@ if (isset($_GET["subdel"])) {
 
                       <?php
                       echo "<br>
-                              <span class=\"editable\" contenteditable=\"false\" type=\"tu\" tid=\"" . $ticket_update["ID"] . "\">" . html_entity_decode($ticket_update["Notes"]) . "</span>";
+                              <span class=\"editable\" contenteditable=\"false\" type=\"tu\" tid=\"" . $ticket_update["ID"] . "\">" . nl2br($ticket_update["Notes"]) . "</span>";
                       ?>
 
                       <?php
