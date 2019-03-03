@@ -577,7 +577,7 @@ if (isset($_GET["subdel"])) {
 
                       <?php
                       echo "<br>
-                              <span class=\"editable\" contenteditable=\"false\" type=\"tu\" tid=\"" . $ticket_update["ID"] . "\">" . nl2br($ticket_update["Notes"]) . "</span>";
+                              <span class=\"editable\" contenteditable=\"false\" type=\"tu\" tid=\"" . $ticket_update["ID"] . "\">" . html_entity_decode($ticket_update["Notes"]) . "</span>";
                       ?>
 
                       <?php
