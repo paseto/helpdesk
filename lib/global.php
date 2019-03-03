@@ -937,7 +937,7 @@ function aaModelInsertRequest($u, $ue, $group, $priority, $subject, $message, $f
         $qCompany = $pdo_conn->prepare($sqlCompany);
         $qCompany->execute(array(':email' => $u_email));
         $qUser = $qCompany->fetch(PDO::FETCH_ASSOC);
-        $subject .= utf8_decode(' | (Usuário: '.$qUser['Fname'].'<br/>Empresa: '.$qUser['razao_social'].')');
+        $subject .= utf8_decode(' | (Usuário: ' . $qUser['Fname'] . '<br/>Empresa: ' . $qUser['razao_social'] . ')');
         //End custom
 
         if ($q->execute(array('u' => $u,
@@ -1074,10 +1074,39 @@ function aaDateRange($daterange)
     return array(@$filter_date_from, @$filter_date_to);
 }
 
-function decode_entities($input)
+function isISOString($string)
 {
 
-    $input = utf8_encode(html_entity_decode(stripslashes($input)));
+
+    $encoding = mb_detect_encoding($string . 'x', 'UTF-8, ISO-8859-1');
+
+
+    if ($encoding == 'ISO-8859-1') {
+        return true;
+    }
+
+    return false;
+}
+
+function corrigeAcentuacao($string, $transformUppercase = false)
+{
+    if (isISOString($string)) {
+        //$string = utf8_encode($string);
+    } else {
+        $string = utf8_decode($string);
+    }
+
+    if ($transformUppercase) {
+        $string = mb_strtoupper($string, 'utf-8');
+    }
+
+    return $string;
+}
+
+function decode_entities($input)
+{
+//    $input = utf8_encode(html_entity_decode(stripslashes($input)));
+    return corrigeAcentuacao($input);
 
     return $input;
 
