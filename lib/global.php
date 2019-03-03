@@ -937,7 +937,7 @@ function aaModelInsertRequest($u, $ue, $group, $priority, $subject, $message, $f
         $qCompany = $pdo_conn->prepare($sqlCompany);
         $qCompany->execute(array(':email' => $u_email));
         $qUser = $qCompany->fetch(PDO::FETCH_ASSOC);
-        $subject .= utf8_decode(' | (Usuário: ' . $qUser['Fname'] . '<br/>Empresa: ' . $qUser['razao_social'] . ')');
+        $subject .= decode_entities(' | (Usu&aacute;rio: ' . $qUser['Fname'] . '<br/>Empresa: ' . $qUser['razao_social'] . ')');
         //End custom
 
         if ($q->execute(array('u' => $u,
@@ -1090,10 +1090,20 @@ function isISOString($string)
 
 function corrigeAcentuacao($string, $transformUppercase = false)
 {
+
+
     if (isISOString($string)) {
         //$string = utf8_encode($string);
     } else {
         $string = utf8_decode($string);
+    }
+
+    //detect decode or encode
+    if (preg_match('!!u', $string)){
+        $string = utf8_decode($string);
+    }else{
+        $string = utf8_encode($string);
+
     }
 
     if ($transformUppercase) {
@@ -1106,9 +1116,8 @@ function corrigeAcentuacao($string, $transformUppercase = false)
 function decode_entities($input)
 {
 //    $input = utf8_encode(html_entity_decode(stripslashes($input)));
-    return corrigeAcentuacao($input);
 
-    return $input;
+    return corrigeAcentuacao($input);
 
 }
 

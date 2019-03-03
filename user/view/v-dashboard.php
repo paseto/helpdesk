@@ -25,7 +25,7 @@ echo '<div class="div-table b">'.$lang['u-dashboard-sub'].'</div>'.
 	
 foreach ($array_of_tickets as $ticket) {
 	echo '<div class="div-table-cont">';
-	echo '<div class="div-table"><a href="index.php?p=ticket&email='.$ticket["User_Email"].'&tid='.$ticket["ID"].'">'.$ticket["Subject"].'</a></div>'.
+	echo '<div class="div-table"><a href="index.php?p=ticket&email='.$ticket["User_Email"].'&tid='.$ticket["ID"].'">'.decode_entities($ticket["Subject"]).'</a></div>'.
 	'<div class="div-table">'.$ticket["Status"].'</div>'.
 	'<div class="div-table">'.$ticket["DateAdd"].'</div>'.
 	'<div class="div-table">'.$ticket["DateUp"].'</div>';
