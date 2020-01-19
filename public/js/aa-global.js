@@ -104,6 +104,11 @@ $(document).ready(function() {
 			
 			});
 		
-	});	
+	});
+
+    $(document).off().on('click', '#Add', function () {
+        $(this).attr('readonly', 'readonly');
+        $(this).val('Aguarde enquanto enviamos seu chamado...');
+    });
 	
 });		

@@ -146,13 +146,15 @@ function aaModelSubmitTicketUpdate($tid, $user, $reply, $files)
         $now = timezone_time();
         $db_files = (isset($db_files)) ? $db_files : ""; // if file uploaded then use db str else blank for sql insert
 
-        $add_ticket_update = "INSERT INTO " . $pdo_t['t_ticket_updates'] . " (Ticket_ID, Update_By, Updated_At, Update_Type, Notes, Update_Files, Update_Emailed) 
-							VALUES (:ticketid, :userid, :now, :type, :reply, :aa_files, :public)";
+        $add_ticket_update = "INSERT INTO " . $pdo_t['t_ticket_updates'] . " (Ticket_ID, Update_By, Updated_At, 
+        Update_Type, Update_Time, Notes, Update_Files, Update_Emailed) 
+							VALUES (:ticketid, :userid, :now, :type, :time, :reply, :aa_files, :public)";
         $q = $pdo_conn->prepare($add_ticket_update);
         $q->execute(array('ticketid' => $tid,
                 'userid' => $user,
                 'now' => $now,
                 'type' => 'Update',
+                'time' => 1,
                 'reply' => $reply,
                 'aa_files' => $db_files,
                 'public' => 1));

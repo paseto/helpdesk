@@ -1609,8 +1609,10 @@ function aaSendEmailUpdateTicketNotification($tid)
     $q->execute(array("tid" => $tid));
     $u = $q->fetch();
 
-    aaSendEmail($u['Email'], 'Chamado [' . $tid . '] ATUALIZADO', 'Chamdo ' . $tid . ' foi atualizado pelo usuário. <p>' . decode_entities($u['Notes']) . '</p>');
-
+    if ($u) {
+        aaSendEmail($u['Email'], 'Chamado [' . $tid . '] ATUALIZADO', 'Chamdo ' . $tid . ' foi atualizado pelo usuário. <p>' . decode_entities($u['Notes']) . '</p>');
+    }
+    return true;
 }
 
 // send email notification for private note
