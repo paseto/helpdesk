@@ -1117,6 +1117,7 @@ function decode_entities($input)
 {
 //    $input = utf8_encode(html_entity_decode(stripslashes($input)));
 
+    $input = html_entity_decode($input);
     return corrigeAcentuacao($input);
 
 }
@@ -1610,7 +1611,7 @@ function aaSendEmailUpdateTicketNotification($tid)
     $u = $q->fetch();
 
     if ($u) {
-        aaSendEmail($u['Email'], 'Chamado [' . $tid . '] ATUALIZADO', 'Chamdo ' . $tid . ' foi atualizado pelo usuário. <p>' . decode_entities($u['Notes']) . '</p>');
+        aaSendEmail($u['Email'], 'Chamado [' . $tid . '] ATUALIZADO', 'Chamado ' . $tid . ' foi atualizado pelo usuário. <p>' . decode_entities($u['Notes']) . '</p>');
     }
     return true;
 }
