@@ -65,7 +65,9 @@ foreach ($imail_account as $imail) {
 	} else if ($emails[$i] > 0) {
 		
 		foreach($emails[$i] as $e) {
-		
+		    //custom mark email as seen
+            $status = imap_setflag_full($connection[$i], $e, "\\Seen");
+
 			$emailMessage = new EmailMessage($pdo_conn, $pdo_t, $connection[$i], $e);
 			// set to true to get the message parts (or don't set to false, the default is true)
 			$emailMessage->getAttachments = true;
