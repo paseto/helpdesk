@@ -6,6 +6,13 @@ require_once "../../lib/db.php";
 require_once "../../lib/global.php";
 $pdo_conn = pdo_conn();
 
+//Remove collision
+$uuid = $_SESSION['a']['aauid'];
+
+$unset_collision = "UPDATE ".$pdo_t['t_ticket']." SET Collision = '0' WHERE Collision = :uid";
+
+$q = $pdo_conn->prepare($unset_collision);
+$q->execute(array(':uid' => $uuid));
 
 $var = $_POST;
 

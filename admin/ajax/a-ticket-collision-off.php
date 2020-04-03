@@ -12,5 +12,6 @@ $uid = $_POST["p_uid"];
 $unset_collision = "UPDATE ".$pdo_t['t_ticket']." SET Collision = '0' WHERE Collision = :uid";
 
 $q = $pdo_conn->prepare($unset_collision);
-$q->execute(array(':uid' => $uid, ':tid' => $tid));
+//$q->execute(array(':uid' => $uid, ':tid' => $tid));
+$q->execute(array(':uid' => $uid));
 ?>
